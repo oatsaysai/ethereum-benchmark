@@ -17,6 +17,11 @@ nohup.out
 ethereum_script/nohup.out
 quorum_script/nohup.out
 
+npm-debug.log
+yarn-error.log
+
+contract_addresses.json
+
 # OSX
 #
 .DS_Store
