@@ -16,8 +16,9 @@ contract('Benchmark', function(accounts) {
   it('should have all getters with correct value', async () => {
     var watcher = benchmark.FinishWrite();
 
-    await benchmark.writeData(0, 'data', 3);
+    await benchmark.writeData('data', 3);
     let events = await watcher.get();
+    // console.log(events);
     assert.equal(events.length, 1);
     assert.equal(events[0].args.data.valueOf(), 'data');
   });
