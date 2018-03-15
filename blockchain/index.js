@@ -39,10 +39,11 @@ let Benchmark = truffleContract(benchmarkJSON);
 Benchmark.setProvider(provider);
 
 var benchmarkInstance = Benchmark.at(addressObj.Benchmark);
-var event = benchmarkInstance.FinishWrite(
-  {},
-  { fromBlock: 0, toBlock: 'latest' }
-);
+// var event = benchmarkInstance.FinishWrite(
+//   {},
+//   { fromBlock: 0, toBlock: 'latest' }
+// );
+var event = benchmarkInstance.FinishWrite();
 event.watch(function(error, events) {
   var now = moment()
     .tz('Asia/Bangkok')

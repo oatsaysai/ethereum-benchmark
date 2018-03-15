@@ -18,9 +18,13 @@ jq -c '.[] | { id, user, ip}' server.json | while read i; do
   # scp -r $PWD/quorum_Node/permissioned-nodes.json $USER@$IP:~/quorum-benchmark/quorum_Node/permissioned-nodes.json
   # ssh -n $USER@$IP "docker rm quorum -f"
   # ssh -n $USER@$IP "docker run -d -e 'NODE=$ID' --name quorum -p 22000:22000 -p 21000:21000 -p 54000:54000 -v ~/quorum-benchmark/quorum_Node:/quorum_script quorum"
-  scp -r $PWD/ethermint_Node/genesis.json $USER@$IP:~/quorum-benchmark/ethermint_Node/genesis.json
-  scp -r $PWD/ethermint_Node/start.sh $USER@$IP:~/quorum-benchmark/ethermint_Node/start.sh
-  ssh -n $USER@$IP "docker run -d -e 'NODE=$ID' --name ethermint -p 22000:22000 -p 46656:46656 -v ~/quorum-benchmark/ethermint_Node:/node ethermint"
+  # scp -r $PWD/ethermint_Node/genesis.json $USER@$IP:~/quorum-benchmark/ethermint_Node/genesis.json
+  # scp -r $PWD/ethermint_Node/start.sh $USER@$IP:~/quorum-benchmark/ethermint_Node/start.sh
+  # ssh -n $USER@$IP "docker run -d -e 'NODE=$ID' --name ethermint -p 22000:22000 -p 46656:46656 -v ~/quorum-benchmark/ethermint_Node:/node ethermint"
+
+  # scp -r $PWD/ethermint_Node/genesis.json $USER@$IP:~/quorum-benchmark/ethermint_Node/genesis.json
+  # scp -r $PWD/ethermint_Node/start.sh $USER@$IP:~/quorum-benchmark/ethermint_Node/start.sh
+  ssh -n $USER@$IP "docker run -d -e 'NODE=$ID' --name ethereum -p 22000:22000 -p 21000:21000 -p 54000:54000 -v ~/quorum-benchmark/ethereum_Node:/node ethereum"
 done
 
 sleep 10
