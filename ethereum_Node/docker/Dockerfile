@@ -16,4 +16,4 @@ ENV GOBIN=/usr/local/go/bin
 RUN git clone https://github.com/ethereum/go-ethereum.git
 RUN cd go-ethereum && git checkout tags/v1.6.7 && make all && cp build/bin/geth /usr/local/bin && cp build/bin/bootnode /usr/local/bin
 
-ENTRYPOINT /bin/bash
+ENTRYPOINT cd node && ./start.sh && /bin/bash
