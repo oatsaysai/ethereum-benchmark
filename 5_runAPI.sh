@@ -14,7 +14,7 @@ jq -c '.[] | { id, user, ip}' server.json | while read i; do
 
   echo "start API at node $ID"
   # scp -r $PWD/blockchain/truffle.js $USER@$IP:~/quorum-benchmark/blockchain/truffle.js
-  # scp -r $PWD/blockchain/index.js $USER@$IP:~/quorum-benchmark/blockchain/index.js
+  scp -r $PWD/blockchain/index.js $USER@$IP:~/quorum-benchmark/blockchain/index.js
   # scp -r $PWD/quorum_API/src/server.js $USER@$IP:~/quorum-benchmark/quorum_API/src/server.js
   ssh -n $USER@$IP "sudo rm -rf api.log result.csv ~/quorum-benchmark/blockchain/result.csv"
   ssh -n $USER@$IP bash -c "'

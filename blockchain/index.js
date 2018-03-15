@@ -66,7 +66,7 @@ function createTransaction(seq, data, node) {
   instance.writeData
     .sendTransaction(seq, data, {
       from: account,
-      gas: '50000000'
+      gas: '1500000'
     })
     .then(function(txhash) {
       now = moment()

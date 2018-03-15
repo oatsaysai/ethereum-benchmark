@@ -22,7 +22,7 @@ if [ $NODE != "" ]; then
   
   echo "[*] Starting Ethermint node"
   FLAGS="--rpcport 22000 --unlock 0 --password passwords.txt"
-  ALL_ARGS="--datadir qdata/dd$NODE/ethermint --rpc --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --rpcapi eth,net,web3,personal,admin"
+  ALL_ARGS="--datadir qdata/dd$NODE/ethermint --rpc --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --rpcapi eth,net,web3,personal,admin,txpool"
   nohup ethermint $ALL_ARGS $FLAGS &> qdata/logs/$NODE.log &
 
   while true; do sleep 1000; done
